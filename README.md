@@ -1,2 +1,2 @@
-# per_scholas
-A complete collection of academic work completed for the Per Scholas Software Programming Cohort. 
+# Per Scholas School Work
+Here is a collection of the work I completed during a 15 week programming cohort with Per Scholas.
