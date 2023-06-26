@@ -14,23 +14,23 @@
 // let num = 52;
 // if (num > 0) {
 //   if (num > 100) {
-//     console.log(num + " is a number larger than 100.");
+//     console.log(`${num} is a number larger than 100.`);
 //   } else {
-//     console.log(num + " is a positive number that is less than 100.");
+//     console.log(`${num} is a positive number that is less than 100.`);
 //   }
 // } else if (num === 0) {
-//   console.log(num + " is equal to zero.");
+//   console.log(`${num} is equal to zero.`);
 // } else {
-//   console.log(num + " is a negative number.");
+//   console.log(`${num} is a negative number.`);
 // }
 // let score = 54;
 // if (score >= 90) {
 //   console.log("A");
-// } else if (score >= 80 && score < 90) {
+// } else if (score >= 80) {
 //   console.log("B");
-// } else if (score >= 70 && score < 80) {
+// } else if (score >= 70) {
 //   console.log("C");
-// } else if (score >= 55 && score < 70) {
+// } else if (score >= 55) {
 //   console.log("D");
 // } else {
 //   console.log("F");
