@@ -80,26 +80,38 @@ const favMovies = [
   "Fast and Furious",
 ]
 
-favMovies.sort()
-console.log(favMovies)
-favMovies.pop()
-console.log(favMovies)
-favMovies.push("Guardians of the Galaxy")
-console.log(favMovies)
-favMovies.reverse()
-console.log(favMovies)
-favMovies.shift()
-favMovies.unshift()
-console.log(favMovies)
-favMovies.splice(favMovies.indexOf("Django Unchained"), 0, "Avatar")
-console.log(favMovies)
-const halfOfTheMovies = favMovies.slice(Math.floor(favMovies.length / 2))
-console.log(halfOfTheMovies)
-console.log(favMovies)
-console.log(favMovies.indexOf("Fast and Furious"))
+// favMovies.sort()
+// console.log(favMovies)
+// favMovies.pop()
+// console.log(favMovies)
+// favMovies.push("Guardians of the Galaxy")
+// console.log(favMovies)
+// favMovies.reverse()
+// console.log(favMovies)
+// favMovies.shift()
+// favMovies.unshift()
+// console.log(favMovies)
+// favMovies.splice(favMovies.indexOf("Django Unchained"), 0, "Avatar")
+// console.log(favMovies)
+// const halfOfTheMovies = favMovies.slice(Math.floor(favMovies.length / 2))
+// console.log(halfOfTheMovies)
+// console.log(favMovies)
+// console.log(favMovies.indexOf("Fast and Furious"))
 ////////////////////////////////
 // Where is Waldo
 ////////////////////////////////
+
+const whereIsWaldo = [
+  ["Timmy", "Frank"],
+  "Eggbert",
+  ["Lucinda", "Jacc", "Neff", "Snoop"],
+  ["Petunia", ["Baked Goods", "Waldo"]],
+]
+
+whereIsWaldo.splice(1, 1)
+console.log(whereIsWaldo)
+whereIsWaldo[1].splice(2, 1, "No One")
+console.log(whereIsWaldo[2][1][1])
 
 ////////////////////////////////
 //  Excited Kitten
