@@ -50,15 +50,53 @@
 ////////////////////////////////
 // Yell at the Ninja Turtles
 ////////////////////////////////
-const ninjaTurtles = ["Donatello", "Leonardo", "Raphael", "Michaelangelo"]
-for (turtle of ninjaTurtles) {
-  console.log(turtle.toUpperCase())
-}
+// const ninjaTurtles = ["Donatello", "Leonardo", "Raphael", "Michaelangelo"]
+// for (turtle of ninjaTurtles) {
+//   console.log(turtle.toUpperCase())
+// }
 
 ////////////////////////////////
 // Methods, Revisited
 ////////////////////////////////
+const favMovies = [
+  "Jaws",
+  "The Fellowship of the Ring",
+  "Howl's Moving Castle",
+  "Django Unchained",
+  "Cloud Atlas",
+  "The Usual Suspects",
+  "Toy Story",
+  "Conan the Barbarian",
+  "Titanic",
+  "Harry Potter",
+  "Fried Green Tomatoes",
+  "Volver",
+  "Oculus",
+  "Seven",
+  "Black Panther",
+  "Harry Potter",
+  "Imitation of Life",
+  "Snatch",
+  "Fast and Furious",
+]
 
+favMovies.sort()
+console.log(favMovies)
+favMovies.pop()
+console.log(favMovies)
+favMovies.push("Guardians of the Galaxy")
+console.log(favMovies)
+favMovies.reverse()
+console.log(favMovies)
+favMovies.shift()
+favMovies.unshift()
+console.log(favMovies)
+favMovies.splice(favMovies.indexOf("Django Unchained"), 0, "Avatar")
+console.log(favMovies)
+const halfOfTheMovies = favMovies.slice(Math.floor(favMovies.length / 2))
+console.log(halfOfTheMovies)
+console.log(favMovies)
+console.log(favMovies.indexOf("Fast and Furious"))
 ////////////////////////////////
 // Where is Waldo
 ////////////////////////////////
