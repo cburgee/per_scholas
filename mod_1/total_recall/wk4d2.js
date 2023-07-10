@@ -3,9 +3,9 @@ A
 1) const var = 12;
 2) var = 14;
 3) var = let newVar;
-4) declare is creating a new varabie. Assigning is adding a value to a variable. Defining is usually in reference to creating functions.
-6) pseudocoding is going through the logic of code without writing any actual code down. A brainstrom of sorts.
-7) 80% should be spent thinking.
+4) Declare is creating a new varabie. Assigning is adding a value to a variable. Defining is both at the same time: creation and assignment.
+6) Pseudocoding is going through the logic of code without writing any actual code down. A brainstrom of sorts.
+7) 85% should be spent thinking.
 */
 
 // B----------------------------------------------------------------------------------------------------------------
