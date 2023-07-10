@@ -58,27 +58,27 @@
 ////////////////////////////////
 // Methods, Revisited
 ////////////////////////////////
-const favMovies = [
-  "Jaws",
-  "The Fellowship of the Ring",
-  "Howl's Moving Castle",
-  "Django Unchained",
-  "Cloud Atlas",
-  "The Usual Suspects",
-  "Toy Story",
-  "Conan the Barbarian",
-  "Titanic",
-  "Harry Potter",
-  "Fried Green Tomatoes",
-  "Volver",
-  "Oculus",
-  "Seven",
-  "Black Panther",
-  "Harry Potter",
-  "Imitation of Life",
-  "Snatch",
-  "Fast and Furious",
-]
+// const favMovies = [
+//   "Jaws",
+//   "The Fellowship of the Ring",
+//   "Howl's Moving Castle",
+//   "Django Unchained",
+//   "Cloud Atlas",
+//   "The Usual Suspects",
+//   "Toy Story",
+//   "Conan the Barbarian",
+//   "Titanic",
+//   "Harry Potter",
+//   "Fried Green Tomatoes",
+//   "Volver",
+//   "Oculus",
+//   "Seven",
+//   "Black Panther",
+//   "Harry Potter",
+//   "Imitation of Life",
+//   "Snatch",
+//   "Fast and Furious",
+// ]
 
 // favMovies.sort()
 // console.log(favMovies)
@@ -101,21 +101,37 @@ const favMovies = [
 // Where is Waldo
 ////////////////////////////////
 
-const whereIsWaldo = [
-  ["Timmy", "Frank"],
-  "Eggbert",
-  ["Lucinda", "Jacc", "Neff", "Snoop"],
-  ["Petunia", ["Baked Goods", "Waldo"]],
-]
+// const whereIsWaldo = [
+//   ["Timmy", "Frank"],
+//   "Eggbert",
+//   ["Lucinda", "Jacc", "Neff", "Snoop"],
+//   ["Petunia", ["Baked Goods", "Waldo"]],
+// ]
 
-whereIsWaldo.splice(1, 1)
-console.log(whereIsWaldo)
-whereIsWaldo[1].splice(2, 1, "No One")
-console.log(whereIsWaldo[2][1][1])
+// whereIsWaldo.splice(1, 1)
+// console.log(whereIsWaldo)
+// whereIsWaldo[1].splice(2, 1, "No One")
+// console.log(whereIsWaldo[2][1][1])
 
 ////////////////////////////////
 //  Excited Kitten
 ////////////////////////////////
+
+// const kittenStatements = [
+//   "human...why you taking pictures of me?",
+//   "the catnip made me do it",
+//   "why does the red dot always get away",
+// ]
+
+// for (let i = 1; i <= 20; i++) {
+//   if (i % 2 === 0) {
+//     console.log(
+//       kittenStatements[Math.floor(Math.random() * kittenStatements.length)]
+//     )
+//   } else {
+//     console.log("Love me, pet me! HSSSSSS!")
+//   }
+// }
 
 ////////////////////////////////
 //  Find the Median
