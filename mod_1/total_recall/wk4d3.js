@@ -2,9 +2,9 @@
 // Easy Going
 ////////////////////////////////
 
-// for (let i = 0; i <= 20; i++) {
-//   console.log(i)
-// }
+for (let i = 0; i <= 20; i++) {
+  console.log(i)
+}
 
 ////////////////////////////////
 // Get Even
@@ -136,3 +136,24 @@
 ////////////////////////////////
 //  Find the Median
 ////////////////////////////////
+
+// const nums = [
+//   14, 11, 16, 15, 13, 16, 15, 17, 19, 11, 12, 14, 19, 11, 15, 17, 11, 18, 12,
+//   17, 12, 71, 18, 15, 12,
+// ]
+
+// This is MEAN not MEDIAN (big oopsie, realized after completion)
+// function getMean(arrOfNums) {
+//   let sum = 0
+//   for (i of arrOfNums) {
+//     sum += i
+//   }
+//   return sum / arrOfNums.length
+// }
+
+// function getMedian(arrOfNums) {
+//   arrOfNums.sort()
+//   return arrOfNums[Math.floor(arrOfNums.length / 2)]
+// }
+
+// console.log(getMedian(nums))
