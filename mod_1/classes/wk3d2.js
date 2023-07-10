@@ -11,7 +11,7 @@ class Cat {
   meow() {
     console.log(`${this.name} *meows*`)
   }
-  set changeName(newName) {
+  set setName(newName) {
     this.name = newName
   }
   getAttributes() {
@@ -36,9 +36,9 @@ class Cat {
 const cat1 = new Cat("Max", "Orange", 10, "male")
 const cat2 = new Cat("Bella", "Black", 8, "female")
 const cat3 = new Cat("Milo", "Gray", 11, "male")
-cat1.changeName = "Billy"
-cat2.changeName = "Lily"
-cat3.changeName = "Leo"
+cat1.setName = "Billy"
+cat2.setName = "Lily"
+cat3.setName = "Leo"
 console.log(cat1)
 console.log(cat2)
 console.log(cat3)
