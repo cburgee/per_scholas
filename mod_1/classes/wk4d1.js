@@ -86,7 +86,7 @@ class Dinner {
   constructor(chosenFood) {
     this.appetizer = chosenFood[0]
     this.entree = chosenFood[1]
-    this.desserts = chosenFood[2]
+    this.dessert = chosenFood[2]
   }
 }
 
