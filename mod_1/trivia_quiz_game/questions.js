@@ -25,12 +25,8 @@ const questions = {
       difficulty: "easy",
       question:
         "In any programming language, what is the most common way to iterate through an array?",
-      correct_answer: "&#039;For&#039; loops",
-      incorrect_answers: [
-        "&#039;If&#039; Statements",
-        "&#039;Do-while&#039; loops",
-        "&#039;While&#039; loops",
-      ],
+      correct_answer: "(For)loops",
+      incorrect_answers: ["(If)Statements", "(Do-while)loops", "(While)loops"],
     },
     {
       category: "Science: Computers",
@@ -49,7 +45,7 @@ const questions = {
       type: "multiple",
       difficulty: "medium",
       question:
-        "Moore&#039;s law originally stated that the number of transistors on a microprocessor chip would double every...",
+        "Moore(s law originally stated that the number of transistors on a microprocessor chip would double every...",
       correct_answer: "Year",
       incorrect_answers: ["Four Years", "Two Years", "Eight Years"],
     },
@@ -57,7 +53,7 @@ const questions = {
       category: "Science: Computers",
       type: "multiple",
       difficulty: "medium",
-      question: "When was the programming language &quot;C#&quot; released?",
+      question: "When was the programming language (C#)released?",
       correct_answer: "2000",
       incorrect_answers: ["1998", "1999", "2001"],
     },
@@ -112,7 +108,7 @@ const questions = {
       type: "multiple",
       difficulty: "easy",
       question:
-        "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+        "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn(t get modified?",
       correct_answer: "Final",
       incorrect_answers: ["Static", "Private", "Public"],
     },
@@ -130,7 +126,7 @@ const questions = {
       type: "multiple",
       difficulty: "easy",
       question:
-        "If you were to code software in this language you&#039;d only be able to type 0&#039;s and 1&#039;s.",
+        "If you were to code software in this language you(d only be able to type 0(s and 1(s.",
       correct_answer: "Binary",
       incorrect_answers: ["JavaScript", "C++", "Python"],
     },
@@ -160,8 +156,7 @@ const questions = {
       category: "Science: Computers",
       type: "multiple",
       difficulty: "medium",
-      question:
-        "Nvidia&#039;s headquarters are based in which Silicon Valley city?",
+      question: "Nvidia(s headquarters are based in which Silicon Valley city?",
       correct_answer: "Santa Clara",
       incorrect_answers: ["Palo Alto", "Cupertino", "Mountain View"],
     },
@@ -217,12 +212,12 @@ const questions = {
       type: "multiple",
       difficulty: "medium",
       question:
-        "In the programming language &quot;Python&quot;, which of these statements would display the string &quot;Hello World&quot; correctly?",
-      correct_answer: "print(&quot;Hello World&quot;)",
+        "In the programming language (Python(, which of these statements would display the string (Hello World)correctly?",
+      correct_answer: "print((Hello World()",
       incorrect_answers: [
-        "console.log(&quot;Hello World&quot;)",
-        "echo &quot;Hello World&quot;",
-        "printf(&quot;Hello World&quot;)",
+        "console.log((Hello World()",
+        "echo (Hello World(",
+        "printf((Hello World()",
       ],
     },
     {
@@ -243,7 +238,7 @@ const questions = {
       type: "multiple",
       difficulty: "medium",
       question:
-        "In CSS, which of these values CANNOT be used with the &quot;position&quot; property?",
+        "In CSS, which of these values CANNOT be used with the (position)property?",
       correct_answer: "center",
       incorrect_answers: ["static", "absolute", "relative"],
     },
@@ -261,7 +256,7 @@ const questions = {
       type: "multiple",
       difficulty: "easy",
       question:
-        "In &quot;Hexadecimal&quot;, what color would be displayed from the color code? &quot;#00FF00&quot;?",
+        "In (Hexadecimal(, what color would be displayed from the color code? (#00FF00(?",
       correct_answer: "Green",
       incorrect_answers: ["Red", "Blue", "Yellow"],
     },
@@ -311,7 +306,7 @@ const questions = {
       category: "Science: Computers",
       type: "multiple",
       difficulty: "medium",
-      question: "What does &quot;LCD&quot; stand for?",
+      question: "What does (LCD)stand for?",
       correct_answer: "Liquid Crystal Display",
       incorrect_answers: [
         "Language Control Design",
@@ -339,7 +334,7 @@ const questions = {
       category: "Science: Computers",
       type: "multiple",
       difficulty: "medium",
-      question: "What is known as &quot;the brain&quot; of the Computer?",
+      question: "What is known as (the brain)of the Computer?",
       correct_answer: "Central Processing Unit",
       incorrect_answers: [
         "Motherboard",
@@ -448,13 +443,9 @@ const questions = {
       type: "multiple",
       difficulty: "hard",
       question:
-        "According to DeMorgan&#039;s Theorem, the Boolean expression (AB)&#039; is equivalent to:",
-      correct_answer: "A&#039; + B&#039;",
-      incorrect_answers: [
-        "A&#039;B + B&#039;A",
-        "A&#039;B&#039;",
-        "AB&#039; + AB",
-      ],
+        "According to DeMorgan(s Theorem, the Boolean expression (AB))is equivalent to:",
+      correct_answer: "A)+ B(",
+      incorrect_answers: ["A(B + B(A", "A(B(", "AB)+ AB"],
     },
     {
       category: "Science: Computers",
@@ -481,7 +472,7 @@ const questions = {
       correct_answer: "Midnight, January 1, 1970",
       incorrect_answers: [
         "Midnight, July 4, 1976",
-        "Midnight on the creator of Unix&#039;s birthday",
+        "Midnight on the creator of Unix(s birthday",
         "Midnight, July 4, 1980",
       ],
     },
@@ -489,8 +480,7 @@ const questions = {
       category: "Science: Computers",
       type: "multiple",
       difficulty: "medium",
-      question:
-        "What does the &#039;S&#039; in the RSA encryption algorithm stand for?",
+      question: "What does the (S)in the RSA encryption algorithm stand for?",
       correct_answer: "Shamir",
       incorrect_answers: ["Secure", "Schottky", "Stable"],
     },
