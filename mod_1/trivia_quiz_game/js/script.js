@@ -1,13 +1,3 @@
-// Player 1 is asked first question.
-// Player 1 is prompted with question
-// Player 1 answer (a, b, c, or d) to the question
-// If correct, add 1 to correctAnswers. If not, do nothing.
-// Repeat steps 1-4 until correctAnswers reaches 10.
-// Record how many questions were answered before the player got 10 correct.
-// Repeat Steps 1-6 for player 2
-// Compare final score for both players, lower score wins the round.
-// Plays best 2 out of 3
-// ------------------------------------------------------------------------------------------------------------------
 // import questions variable from seperate folder so things are a little easier to keep track of.
 import questions from "./questions.js"
 //Player class setup
@@ -41,32 +31,60 @@ class GameBrain {
     this.questions = [...questions["results"]]
     this.currentQuestion = {}
     this.roster = []
+    this.currentCorrectLetterAnswer = ""
   }
 
   //custom implementation of a random number within range
   #getRandomNumberInRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
-  //Grabs a single question out of the questions list copy and adds a new property with all the answer choices in a single list for easier modification
+
   getNextQuestion() {
+    // get a random question from the questions list
     const randQuestion =
-      this.questions[this.#getRandomNumberInRange(0, this.questions.length)]
-    let tmpList = [
-      randQuestion.incorrect_answers[0],
-      randQuestion.incorrect_answers[1],
-      randQuestion.incorrect_answers[2],
-    ]
+      this.questions[this.#getRandomNumberInRange(0, this.questions.length - 1)]
+    let incorrectAnswers = randQuestion.incorrect_answers
+    let correctAnswer = randQuestion.correct_answer
+    let tmpList = [...incorrectAnswers]
     // Add the correct answer into a different answer choice each time, instead of always the same answer choice
-    let randIndex = Math.floor(Math.random() * tmpList.length)
-    randQuestion.answerChoices = tmpList
-    randQuestion.answerChoices.splice(randIndex, 0, randQuestion.correct_answer)
+    let randIndex = Math.floor(Math.random() * tmpList.length + 1)
+    randQuestion.answerChoices = [...tmpList]
+    randQuestion.answerChoices.splice(randIndex, 0, correctAnswer)
     this.currentQuestion = randQuestion
+    //Takes the correct answer of the question and assigns it to a letter value so it can be used for comparison later.
+    switch (String(randQuestion.answerChoices.indexOf(correctAnswer))) {
+      case "0":
+        this.currentCorrectLetterAnswer = "a"
+        console.log(this.currentCorrectLetterAnswer)
+        break
+      case "1":
+        this.currentCorrectLetterAnswer = "b"
+        console.log(this.currentCorrectLetterAnswer)
+        break
+      case "2":
+        this.currentCorrectLetterAnswer = "c"
+        console.log(this.currentCorrectLetterAnswer)
+        break
+
+      case "3":
+        this.currentCorrectLetterAnswer = "d"
+        console.log(this.currentCorrectLetterAnswer)
+        break
+    }
     return randQuestion
   }
   // SHOULDNT BE HERE, WRONG CLASS!!!!!
   // Displays this.currentQuestion
   displayQuestion() {
     const curQuestion = this.currentQuestion
+    const questions = document.querySelectorAll("li")
+    let question = document.querySelector("p")
+    question.textContent = curQuestion.question
+    for (let i = 0; i < questions.length; i++) {
+      console.log(questions[i].textContent)
+      questions[i].textContent = curQuestion.answerChoices[i]
+      console.log(questions[i].textContent)
+    }
     console.log(curQuestion.question)
     console.log(`
     A) ${curQuestion.answerChoices[0]}\n
@@ -79,7 +97,7 @@ class GameBrain {
   // Checks to see if the supplied player's answer is correct
   checkAnswer(player) {
     if (
-      player.currentAnswer === this.currentQuestion.correct_answer.toLowerCase()
+      player.currentAnswer.toLowerCase() === this.currentCorrectLetterAnswer
     ) {
       player.incrementTotalQuestionsAnswered()
       player.incrementCorrectQuestions()
@@ -90,7 +108,8 @@ class GameBrain {
 
   // Sets the current winner as the individual with the least score
   getWinner() {
-    for (let curPlayer of this.roster) {
+    for (let curPlayer of this.roster + 1) {
+      console.log(curPlayer.finalScore)
       let curWinner = this.roster[0]
       if (curPlayer.finalScore <= curWinner.finalScore) {
         curWinner = curPlayer
@@ -99,7 +118,7 @@ class GameBrain {
     }
   }
 
-  // Takes an integer creates X amount of players and adds them to a list
+  // Takes an integer creates X amount of players and adds them to the roster
   createRoster(numOfPlayers) {
     for (let i = 1; i <= numOfPlayers; i++) {
       const newPlayer = new Player(`Player ${i}`)
@@ -124,9 +143,14 @@ const gameBrain = new GameBrain()
 const numberOfPlayers = 2
 gameBrain.createRoster(numberOfPlayers)
 
+// Main game loop----------------------------------------------------------------------------------------------------------------------
+// First while used to restart multiple games
 while (gameBrain.isGameOn === true) {
-  for (let curPlayer of gameBrain.roster) {
-    while (curPlayer.totalQuestionsAnswered < 3) {
+  // for loop to loop through each registered player in the roster
+  for (let i = 0; i < gameBrain.roster.length; i++) {
+    const curPlayer = gameBrain.roster[i]
+    // while the player has not answered 5 questions correctly, keep asking questions. (remember the point of the game is to answer 5 correctly in the least amount of questions possible)
+    while (curPlayer.totalQuestionsAnswered <= 1) {
       gameBrain.getNextQuestion()
       gameBrain.displayQuestion()
       curPlayer.setPlayerAnswer()
@@ -134,6 +158,7 @@ while (gameBrain.isGameOn === true) {
     }
     curPlayer.finalScore = curPlayer.totalQuestionsAnswered
   }
+  gameBrain.isGameOn = false
   console.log(
     `%c The winner is: ${gameBrain.getWinner().name}!`,
     "color: #5258FF; font-size: 25px"
@@ -142,6 +167,7 @@ while (gameBrain.isGameOn === true) {
   let doReplay = String(
     prompt("Would you like to play again? y/n").toLowerCase()
   )
+  // Ask the player if they want to play the game again
   if (doReplay === "y") {
     gameBrain.resetGame()
   } else {
