@@ -24,10 +24,10 @@ class Player {
     this.currentAnswer = String(prompt("Your answer:")).toLowerCase()
   }
 }
-//Game Board class setup
+//Game Brain class setup
 class GameBrain {
   constructor() {
-    this.isGameOn = true
+    this.isGameOn = false
     this.questions = [...questions["results"]]
     this.currentQuestion = {}
     this.roster = []
@@ -55,20 +55,15 @@ class GameBrain {
     switch (String(randQuestion.answerChoices.indexOf(correctAnswer))) {
       case "0":
         this.currentCorrectLetterAnswer = "a"
-        console.log(this.currentCorrectLetterAnswer)
         break
       case "1":
         this.currentCorrectLetterAnswer = "b"
-        console.log(this.currentCorrectLetterAnswer)
         break
       case "2":
         this.currentCorrectLetterAnswer = "c"
-        console.log(this.currentCorrectLetterAnswer)
         break
-
       case "3":
         this.currentCorrectLetterAnswer = "d"
-        console.log(this.currentCorrectLetterAnswer)
         break
     }
     return randQuestion
@@ -77,21 +72,19 @@ class GameBrain {
   // Displays this.currentQuestion
   displayQuestion() {
     const curQuestion = this.currentQuestion
-    const questions = document.querySelectorAll("li")
-    let question = document.querySelector("p")
-    question.textContent = curQuestion.question
-    for (let i = 0; i < questions.length; i++) {
-      console.log(questions[i].textContent)
-      questions[i].textContent = curQuestion.answerChoices[i]
-      console.log(questions[i].textContent)
-    }
-    console.log(curQuestion.question)
-    console.log(`
+    console.log(
+      `%c ${curQuestion.question}`,
+      "color: cornflowerblue; font-size: 14px"
+    )
+    console.log(
+      `%c
     A) ${curQuestion.answerChoices[0]}\n
     B) ${curQuestion.answerChoices[1]}\n
     C) ${curQuestion.answerChoices[2]}\n
     D) ${curQuestion.answerChoices[3]}\n
-    `)
+    `,
+      "color: lightgray; font-size: 12px"
+    )
   }
 
   // Checks to see if the supplied player's answer is correct
@@ -101,21 +94,30 @@ class GameBrain {
     ) {
       player.incrementTotalQuestionsAnswered()
       player.incrementCorrectQuestions()
+      console.log(
+        `%c Correct! (${player.correctQuestions}/3)`,
+        "color: green; font-size: 12px"
+      )
     } else {
+      console.log(
+        `%c Incorrect! (${player.correctQuestions}/3)`,
+        "color: red; font-size: 12px"
+      )
       player.incrementTotalQuestionsAnswered()
     }
   }
 
   // Sets the current winner as the individual with the least score
   getWinner() {
-    for (let curPlayer of this.roster + 1) {
-      console.log(curPlayer.finalScore)
-      let curWinner = this.roster[0]
+    let div = document.querySelector("div")
+    let curWinner = this.roster[0]
+    for (let curPlayer of this.roster) {
       if (curPlayer.finalScore <= curWinner.finalScore) {
         curWinner = curPlayer
       }
-      return curWinner
     }
+    div.textContent = "The winner is: " + curWinner.name + "!"
+    return curWinner
   }
 
   // Takes an integer creates X amount of players and adds them to the roster
@@ -136,21 +138,29 @@ class GameBrain {
     }
   }
 }
-
+// Space to move game below prompt window
+console.log("\n\n\n\n\n\n\n\n")
 // Instantiation of "GameBrain"
 const gameBrain = new GameBrain()
 // Declare number of players for the game and then have the gamebrain create a corresponding amount of players
 const numberOfPlayers = 2
 gameBrain.createRoster(numberOfPlayers)
-
+let doStartGame = String(prompt("Are you ready to play? y/n".toLowerCase()))
+if (doStartGame === "y") {
+  gameBrain.isGameOn = true
+}
 // Main game loop----------------------------------------------------------------------------------------------------------------------
 // First while used to restart multiple games
 while (gameBrain.isGameOn === true) {
   // for loop to loop through each registered player in the roster
   for (let i = 0; i < gameBrain.roster.length; i++) {
     const curPlayer = gameBrain.roster[i]
+    console.log(
+      `%c ${curPlayer.name} start!`,
+      "color: lightgreen; font-size: 20px"
+    )
     // while the player has not answered 5 questions correctly, keep asking questions. (remember the point of the game is to answer 5 correctly in the least amount of questions possible)
-    while (curPlayer.totalQuestionsAnswered <= 1) {
+    while (curPlayer.correctQuestions < 3) {
       gameBrain.getNextQuestion()
       gameBrain.displayQuestion()
       curPlayer.setPlayerAnswer()
@@ -158,12 +168,14 @@ while (gameBrain.isGameOn === true) {
     }
     curPlayer.finalScore = curPlayer.totalQuestionsAnswered
   }
-  gameBrain.isGameOn = false
   console.log(
-    `%c The winner is: ${gameBrain.getWinner().name}!`,
-    "color: #5258FF; font-size: 25px"
+    `%c The winner is: ${gameBrain.getWinner().name}`,
+    "color: lightgreen; font-size: 20px"
   )
-  console.log("Would you like to play again? y/n")
+  console.log(
+    `%c Would you like to play again? y/n`,
+    "color: red; font-size: 24px"
+  )
   let doReplay = String(
     prompt("Would you like to play again? y/n").toLowerCase()
   )
