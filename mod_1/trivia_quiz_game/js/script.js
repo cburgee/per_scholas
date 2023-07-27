@@ -39,6 +39,9 @@ class GameBrain {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
 
+  // Get a random question from questionsList
+  // Add a property answerChoices of all the answer choices, with the correct answer being in a random position
+  // Assign a letter value to the corresponding correct answer position.
   getNextQuestion() {
     // get a random question from the questions list
     const randQuestion =
@@ -68,8 +71,7 @@ class GameBrain {
     }
     return randQuestion
   }
-  // SHOULDNT BE HERE, WRONG CLASS!!!!!
-  // Displays this.currentQuestion
+  // Displays the current question, to the console.
   displayQuestion() {
     const curQuestion = this.currentQuestion
     console.log(
@@ -107,7 +109,7 @@ class GameBrain {
     }
   }
 
-  // Sets the current winner as the individual with the least score
+  // Sets the current winner as the individual with the least score and also displays them to the DOM
   getWinner() {
     let div = document.querySelector("div")
     let curWinner = this.roster[0]
@@ -168,6 +170,7 @@ while (gameBrain.isGameOn === true) {
     }
     curPlayer.finalScore = curPlayer.totalQuestionsAnswered
   }
+  // Display winner to console.
   console.log(
     `%c The winner is: ${gameBrain.getWinner().name}`,
     "color: lightgreen; font-size: 20px"
@@ -176,6 +179,7 @@ while (gameBrain.isGameOn === true) {
     `%c Would you like to play again? y/n`,
     "color: red; font-size: 24px"
   )
+  // Ask the player if they would like to play again.
   let doReplay = String(
     prompt("Would you like to play again? y/n").toLowerCase()
   )
