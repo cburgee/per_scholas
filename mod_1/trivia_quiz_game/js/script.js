@@ -97,12 +97,12 @@ class GameBrain {
       player.incrementTotalQuestionsAnswered()
       player.incrementCorrectQuestions()
       console.log(
-        `%c Correct! (${player.correctQuestions}/3)`,
+        `%c Correct! (${player.correctQuestions}/1)`,
         "color: green; font-size: 12px"
       )
     } else {
       console.log(
-        `%c Incorrect! (${player.correctQuestions}/3)`,
+        `%c Incorrect! (${player.correctQuestions}/1)`,
         "color: red; font-size: 12px"
       )
       player.incrementTotalQuestionsAnswered()
@@ -162,7 +162,7 @@ while (gameBrain.isGameOn === true) {
       "color: lightgreen; font-size: 20px"
     )
     // while the player has not answered 5 questions correctly, keep asking questions. (remember the point of the game is to answer 5 correctly in the least amount of questions possible)
-    while (curPlayer.correctQuestions < 3) {
+    while (curPlayer.correctQuestions < 1) {
       gameBrain.getNextQuestion()
       gameBrain.displayQuestion()
       curPlayer.setPlayerAnswer()
