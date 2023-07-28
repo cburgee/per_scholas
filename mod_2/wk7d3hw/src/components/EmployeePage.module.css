@@ -1,0 +1,7 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: auto;
+  border: solid 2px brown;
+}

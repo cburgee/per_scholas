@@ -11,20 +11,20 @@ function App() {
   )
 }
 
-function ComponentOne() {
-  return <h2>Component 1</h2>
-}
+// function ComponentOne() {
+//   return <h2>Component 1</h2>
+// }
 
-function ComponentTwo() {
-  return <h3>Component 2</h3>
-}
+// function ComponentTwo() {
+//   return <h3>Component 2</h3>
+// }
 
-function ComponentThree() {
-  return <h4>Component 3</h4>
-}
+// function ComponentThree() {
+//   return <h4>Component 3</h4>
+// }
 
-function ComponentFour() {
-  return <h5>Component 4</h5>
-}
+// function ComponentFour() {
+//   return <h5>Component 4</h5>
+// }
 
 export default App

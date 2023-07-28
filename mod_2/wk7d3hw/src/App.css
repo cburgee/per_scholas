@@ -1,0 +1,19 @@
+* {
+  margin: auto;
+  padding: auto;
+}
+.App {
+  border: solid 4px black;
+}
+
+main {
+  display: flex;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}

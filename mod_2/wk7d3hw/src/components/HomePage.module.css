@@ -1,0 +1,8 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: auto;
+  margin: 10px;
+  border: solid 4px yellow;
+}
