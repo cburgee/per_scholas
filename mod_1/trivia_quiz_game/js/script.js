@@ -118,7 +118,7 @@ class GameBrain {
         curWinner = curPlayer
       }
     }
-    div.textContent = "The winner is: " + curWinner.name + "!"
+    div.textContent = "Thank you for playing my Trivia Quiz Game!"
     return curWinner
   }
 

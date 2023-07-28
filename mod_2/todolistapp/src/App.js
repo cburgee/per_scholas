@@ -22,10 +22,31 @@ function App() {
     todosCopy[indexOfTodo].completed = !todosCopy[indexOfTodo].completed
     setTodos([...todosCopy])
   }
+
+  const editTodoText = (id, e) => {
+    const todosCopy = [...todos]
+    const indexOfTodo = todosCopy.findIndex((item) => item.id === id)
+    todosCopy[indexOfTodo].text = e.target.value
+    todosCopy[indexOfTodo].text = e.target.value
+    setTodos([...todosCopy])
+  }
+
+  const deleteTodo = (id) => {
+    const todosCopy = [...todos]
+    const indexOfTodo = todosCopy.findIndex((item) => item.id === id)
+    todosCopy.splice(indexOfTodo, 1)
+    setTodos([...todosCopy])
+  }
   return (
     <div className="App">
       <h1>Todos App</h1>
-      <TodoList todos={todos} addTodo={addTodo} completeTodo={completeTodo} />
+      <TodoList
+        todos={todos}
+        addTodo={addTodo}
+        completeTodo={completeTodo}
+        editTodoText={editTodoText}
+        deleteTodo={deleteTodo}
+      />
     </div>
   )
 }
