@@ -1,10 +1,17 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import TodoList from "./components/TodoList"
 import "./App.css"
 import todosData from "./data/todosData"
 
 function App() {
-  const [todos, setTodos] = useState(todosData)
+  const [todos, setTodos] = useState([])
+  useEffect(() => {
+    const savedTodos = localStorage.getItem("todos")
+
+    if (savedTodos) {
+      setTodos(JSON.parse(savedTodos))
+    }
+  }, [])
 
   const addTodo = (e) => {
     const newTodo = {
@@ -14,6 +21,7 @@ function App() {
     }
     setTodos([...todos, newTodo])
     e.target.value = ""
+    localStorage.setItem("todos", JSON.stringify([...todos, newTodo]))
   }
 
   const completeTodo = (id) => {
@@ -21,6 +29,7 @@ function App() {
     const indexOfTodo = todosCopy.findIndex((item) => item.id === id)
     todosCopy[indexOfTodo].completed = !todosCopy[indexOfTodo].completed
     setTodos([...todosCopy])
+    localStorage.setItem("todos", JSON.stringify([...todos]))
   }
 
   const editTodoText = (id, e) => {
@@ -29,6 +38,7 @@ function App() {
     todosCopy[indexOfTodo].text = e.target.value
     todosCopy[indexOfTodo].text = e.target.value
     setTodos([...todosCopy])
+    localStorage.setItem("todos", JSON.stringify([...todos]))
   }
 
   const deleteTodo = (id) => {
@@ -36,6 +46,7 @@ function App() {
     const indexOfTodo = todosCopy.findIndex((item) => item.id === id)
     todosCopy.splice(indexOfTodo, 1)
     setTodos([...todosCopy])
+    localStorage.setItem("todos", JSON.stringify([...todos]))
   }
   return (
     <div className="App">
