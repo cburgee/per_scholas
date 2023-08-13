@@ -1,9 +1,8 @@
-import { useRef, useState } from "react"
-function ContactForm(props) {
-  const { addNewContact } = props
-  const nameRef = useRef("")
-  const emailRef = useRef("")
-  const phoneRef = useRef("")
+import { useState, useContext } from "react"
+import { ContactsContext } from "../../context/contactsContext"
+function ContactForm() {
+  const contactsCtx = useContext(ContactsContext)
+  const { dispatch } = contactsCtx
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -12,13 +11,8 @@ function ContactForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    // const newContact = {
-    //   name: nameRef.current.value,
-    //   email: emailRef.current.value,
-    //   phone: phoneRef.current.value,
-    // }
-    addNewContact(formData)
+    const newContact = { ...formData, id: new Date() }
+    dispatch({ type: "add_contact", payload: newContact })
     setFormData({
       name: "",
       email: "",

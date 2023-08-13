@@ -1,0 +1,10 @@
+.content {
+  background-color: black;
+  color: white;
+  padding: 15px;
+  font-size: 2em;
+  width: 400px;
+  height: auto;
+  position: relative;
+  left: calc(50% - 200px);
+}

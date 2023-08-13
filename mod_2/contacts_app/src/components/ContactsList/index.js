@@ -1,14 +1,17 @@
 import ContactItem from "../ContactItem"
-// import { useState, useEffect } from "react"
-function ContactsList(props) {
-  const { contacts } = props
+import { useContext } from "react"
+import { ContactsContext } from "../../context/contactsContext"
+function ContactsList() {
+  const contactsCtx = useContext(ContactsContext)
+  const { contacts } = contactsCtx
+  console.log(contacts)
   return (
     <div>
       <h2>Contact List</h2>
       <>
         {contacts ? (
-          contacts.map((contact) => (
-            <ContactItem key={contact.id} {...contact} />
+          contacts.map((contacts) => (
+            <ContactItem key={contacts.id} {...contacts} />
           ))
         ) : (
           <h3>No contacts found!</h3>
