@@ -8,8 +8,7 @@ app.get("/", function (req, res) {
 })
 
 app.get("/tip/:total/:tipPercentage", function (req, res) {
-  const total = req.params.total
-  const tipPercentage = req.params.tipPercentage
+  const { total, tipPercentage } = req.params
   const calculatedTotal = total * (tipPercentage / 100)
   res.send(
     `You should tip a total of ${calculatedTotal}. With a bill of ${total} and a tip percentage of ${tipPercentage}`
@@ -39,7 +38,6 @@ app.get("/magic/:question", function (req, res) {
     "Outlook not so good",
     "Very doubtful",
   ]
-
   const question = req.params.question
   const randomNum = Math.floor(Math.random() * eightBallResponses.length)
   const randomResponse = eightBallResponses[randomNum]
@@ -47,7 +45,7 @@ app.get("/magic/:question", function (req, res) {
 })
 
 app.get("/greeting/:name", function (req, res) {
-  let name = req.params.name
+  const name = req.params.name
   res.send(`Hello, ${name}`)
 })
 
