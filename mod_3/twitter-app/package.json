@@ -1,5 +1,5 @@
 {
-  "name": "express-fruits-app",
+  "name": "twitter-app",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -14,7 +14,8 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "jsx-view-engine": "^1.0.0",
-    "mongoose": "^7.4.5",
+    "method-override": "^3.0.0",
+    "mongoose": "^7.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
