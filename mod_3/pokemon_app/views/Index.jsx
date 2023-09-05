@@ -4,6 +4,10 @@ function Index({ pokemon }) {
   return (
     <main>
       <h1>See all the pokemon!</h1>
+      <nav>
+        <a href="/pokemon/new">Create a new Pokemon</a>
+      </nav>
+      <br />
       <ul>
         {pokemon.map(function (pkmon, index) {
           console.log(pkmon)
