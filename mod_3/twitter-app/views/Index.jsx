@@ -14,7 +14,13 @@ function Index({ tweets }) {
               <a href={`/tweets/${tweet._id}`}>{tweet.title}</a>
               <p>{tweet.body}</p>
               <p>{tweet.author}</p>
-              <span>Likes: {tweet.likes}</span>
+              <div>
+                <a href={`/api/tweets/add-like/${tweet._id}`}>Like</a>
+                <br />
+                <span>Likes: {tweet.likes}</span>
+              </div>
+
+              <br />
               <span>{tweet.sponsored ? "Sponsored" : ""}</span>
               <br />
 

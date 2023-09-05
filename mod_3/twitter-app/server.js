@@ -101,7 +101,7 @@ app.put("/api/tweets/add-comment/:id", async function (req, res) {
   const tweet = await Tweet.findById(id)
   tweet.comments.push(req.body)
   const updatedTweet = await Tweet.findByIdAndUpdate(id, tweet, { new: true })
-  res.send(updatedTweet)
+  res.redirect(`/tweets/${id}`)
 })
 
 // * Increase Likes
@@ -113,7 +113,7 @@ app.get("/api/tweets/add-like/:id", async function (req, res) {
     likes: tweetToUpdate,
     new: true,
   })
-  res.send(updatedTweet)
+  res.redirect("/tweets")
 })
 
 app.get("/api/tweets/seed", async function (req, res) {
