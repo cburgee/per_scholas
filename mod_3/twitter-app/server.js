@@ -1,8 +1,7 @@
 const express = require("express")
 require("dotenv").config()
 const app = express()
-const PORT = 3000
-const HOSTNAME = "127.0.0.1"
+const PORT = process.env.PORT || 3000
 const connectDB = require("./utils/connectDB")
 const Tweet = require("./models/Tweet")
 const manyTweets = require("./models/manyTweets")
@@ -10,7 +9,7 @@ const jsxEngine = require("jsx-view-engine")
 const methodOverride = require("method-override")
 
 app.get("/", function (req, res) {
-  res.send("Working!")
+  res.redirect("/tweets")
 })
 // * App config
 app.set("view engine", "jsx")
@@ -19,6 +18,7 @@ app.engine("jsx", jsxEngine())
 //*MiddleWare
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
+app.use(express.static("public"))
 app.use(methodOverride("_method"))
 
 //* Routes
@@ -122,6 +122,6 @@ app.get("/api/tweets/seed", async function (req, res) {
 })
 
 connectDB
-app.listen(PORT, HOSTNAME, function () {
+app.listen(PORT, function () {
   console.log(`App running on port ${PORT}`)
 })
