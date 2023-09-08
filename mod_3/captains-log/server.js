@@ -5,6 +5,7 @@ const connectDB = require("./utils/connectDB")
 const jsxEngine = require("jsx-view-engine")
 const methodOverride = require("method-override")
 const PORT = process.env.PORT || 3000
+const Log = require("./models/log")
 
 // App config
 app.set("view engine", "jsx")
@@ -22,7 +23,22 @@ app.get("/", function (req, res) {
 
 //* View Routes
 
+app.get("/logs", function (req, res) {
+  res.send("I hear ya.")
+})
+
 //! API Routes
+
+app.post("/api/logs", async function (req, res) {
+  const body = req.body
+  if (body.shipIsBroken === "on") {
+    body.shipIsBroken = true
+  } else {
+    body.shipIsBroken = false
+  }
+  await Log.create(body)
+  res.redirect("/logs")
+})
 
 //! Listen and connectDB
 connectDB
