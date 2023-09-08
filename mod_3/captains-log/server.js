@@ -23,8 +23,9 @@ app.get("/", function (req, res) {
 
 //* View Routes
 
-app.get("/logs", function (req, res) {
-  res.send("I hear ya.")
+app.get("/logs", async function (req, res) {
+  const logs = await Log.find({})
+  res.render("Index", { logs })
 })
 
 //! API Routes
